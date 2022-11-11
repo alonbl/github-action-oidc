@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
         var decoded = jwt.decode(id_token , {complete: true});
         for(var key in decoded.payload) {
             core.setOutput(key, decoded.payload[key]);
+	console.log(key, decoded.payload[key]);
         }
         if(decoded.payload.job_workflow_ref) {
             var nameAndRef = decoded.payload.job_workflow_ref.split("@", 2);
